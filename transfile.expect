@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+set passwd "xxxxxxx"
+spawn rsync -avzP root@192.168.xx.xx:/tmp/12.txt /tmp/
+expect {
+"yes/no" { send "yes\r"}
+"password:" { send "$passwd\r" }
+}
+
+expect eof
